@@ -3,7 +3,7 @@
 import { text } from 'svelte/internal';
 import Listitem from '../components/listItem.svelte'
 let list = []
-let inputValue = ''
+let inputValue = 'sss'
 
 
 //很像react中的useEffect 当后面的依赖项变了就会执行
@@ -16,15 +16,14 @@ onMount(() => {
 afterUpdate(() => {
   // console.log('更新后埔')
 })
-const addItem = (inputValue) => {
- list = [...list, inputValue]
- //添加后 清空输入框  ==TODO==
- inputValue = ''
- console.log(inputValue)
+const addItem = (value) => {
+ list = [...list, value]
+ //添加后 清空输入框  
+ inputValue =  ' '
 }
-const byKeyAdd = (e,inputValue) => {
+const byKeyAdd = (e,value) => {
   if(e.keyCode === 13){
-    addItem(inputValue)
+    addItem(value)
   }
 }
 const handleDel = (idx) => {
@@ -45,10 +44,10 @@ const handleDel = (idx) => {
           on:keydown={(e) => byKeyAdd(e, inputValue)}
           bind:value={inputValue}
           type="text" 
-          class="h-36px w-full rounded-12px outline-none border-0 ">
+          class="h-36px w-full rounded-12px outline-none border-0 "/>
 
           <button 
-          on:click={()=>addItem(inputValue)}
+          on:click={()=> addItem(inputValue)}
           class="text-pink-500 w-36px outline-none transform transition duration-200 ease-in-out hover:scale-120 ">添加</button>
         </div>
         <div class="p-6">
