@@ -25,11 +25,13 @@ export default defineConfig ({
     extend: {
       colors: {
         bg1: '#f8f8f8',
+        'primary': '#ff0000',
+        'primary2': '#00ff00'
       },
       spacing: {
         
       },
-   
+    
     }
-  }
+  },
 })
